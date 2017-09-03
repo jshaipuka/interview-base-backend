@@ -1,14 +1,13 @@
 package graphql;
 
 import com.coxautodev.graphql.tools.SchemaParser;
-import javax.servlet.annotation.WebServlet;
-
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import graphql.repository.TagRepository;
 import graphql.schema.GraphQLSchema;
-
 import graphql.servlet.SimpleGraphQLServlet;
+
+import javax.servlet.annotation.WebServlet;
 
 @WebServlet(urlPatterns = "/interview")
 public class GraphQLEndpoint extends SimpleGraphQLServlet {
@@ -16,7 +15,8 @@ public class GraphQLEndpoint extends SimpleGraphQLServlet {
     private static final TagRepository tagRepository;
 
     static {
-        MongoDatabase mongo = new MongoClient().getDatabase("interview-base");
+        final MongoDatabase mongo =
+                new MongoClient("91.92.128.214", 27017).getDatabase("interview-base");
         tagRepository = new TagRepository(mongo.getCollection("tags"));
     }
 
