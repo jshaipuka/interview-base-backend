@@ -1,37 +1,29 @@
 package lv.jelena.base.interview.model;
 
 
-import java.util.List;
-
 public class Question {
 
-    private String id;
+    private Long id;
+    private String text;
 
-    private String question;
-    private String answer;
-    private List<Company> companies;
-    private List<Role> roles;
-    private List<Tag> tags;
-
-    private int difficulty;
-    private int frequentlyAsked;
-
-    private boolean hidden;
-    private boolean draft;
-    private String createdTime;
-    private String updatedTime;
-
-    private List<String> relatedIds;
-
-    public Question(String question, String answer) {
-        this.question = question;
-        this.answer = answer;
+    public Question(Long id, String text) {
+        this.id = id;
+        this.text = text;
     }
 
-    @Override
-    public String toString() {
-        return String.format(
-                "question[id=%s, firstName='%s', lastName='%s']",
-                id, question, answer);
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(final String text) {
+        this.text = text;
     }
 }
