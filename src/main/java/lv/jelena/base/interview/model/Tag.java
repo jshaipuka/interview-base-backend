@@ -1,21 +1,17 @@
-package graphql.models;
+package lv.jelena.base.interview.model;
 
 public class Tag {
 
-    public String id;
-    public String name;
-    public int count;
+    private String id;
+    private String name;
+    private int count;
+    private boolean hidden;
 
-//    public List<Company> companies;
-//    public List<Role> roles;
-//    public List<Question> questions;
-    public boolean hidden;
-
-    public Tag(String name, int count){
+    public Tag(String name, int count) {
         this(null, name, count);
     }
 
-    public Tag(String id, String name, int count){
+    private Tag(String id, String name, int count) {
         this.id = id;
         this.name = name;
         this.count = count;
@@ -33,7 +29,9 @@ public class Tag {
         return count;
     }
 
-    public boolean isHidden() { return hidden;}
+    public boolean isHidden() {
+        return hidden;
+    }
 
     @Override
     public String toString() {
