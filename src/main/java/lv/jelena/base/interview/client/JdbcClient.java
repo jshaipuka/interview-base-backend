@@ -24,7 +24,7 @@ public class JdbcClient {
     }
 
     public List<Question> questions(final Long interviewId) {
-        return jdbcTemplate.query("SELECT id, text FROM question WHERE interview_id = ?",
-                (resultSet, i) -> new Question(resultSet.getLong("id"), resultSet.getString("text")), interviewId);
+        return jdbcTemplate.query("SELECT id, text, answer FROM question WHERE interview_id = ?",
+                (rs, i) -> new Question(rs.getLong("id"), rs.getString("text"), rs.getString("answer")), interviewId);
     }
 }
