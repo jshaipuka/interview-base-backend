@@ -4,6 +4,7 @@ import lv.jelena.base.interview.manager.InterviewManager;
 import lv.jelena.base.interview.model.Interview;
 import lv.jelena.base.interview.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,9 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
 @RestController
+@RequestMapping("/api")
 public class NotificationController {
 
     private final InterviewManager interviewManager;
@@ -23,13 +23,13 @@ public class NotificationController {
         this.interviewManager = interviewManager;
     }
 
-    @RequestMapping(method = GET, path = "/interviews")
+    @GetMapping("/interviews")
     @ResponseBody
     public List<Interview> interviews() {
         return interviewManager.interviews();
     }
 
-    @RequestMapping(method = GET, path = "/interviews/{interviewId}/questions")
+    @GetMapping("/interviews/{interviewId}/questions")
     @ResponseBody
     public List<Question> questions(@PathVariable("interviewId") final Long interviewId) {
         return interviewManager.questions(interviewId);

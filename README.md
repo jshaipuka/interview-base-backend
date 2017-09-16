@@ -8,10 +8,10 @@ Awesome description is coming soon. Really.
 
 ### Get interviews
 ```bash
-curl -v http://localhost:8080/interviews
+curl -v http://localhost:8080/api/interviews
 ```
 
 ### Get questions from the particular interview
 ```bash
-curl -v http://localhost:8080/interviews/1/questions
+curl -v http://localhost:8080/api/interviews/1/questions
 ```
